@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHANGE COLOR</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .body_container{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      background-color: darkred;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 100px;
+      color: #eee;
+      border: 1px solid #eee;
+      text-align: center;
+    }
+    .clicked {
+      color: hotpink;
+      border: none;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="body_container">
+    <h1 id="title" class="ch-color">CLICK ME</h1>
+  </div>
+  
+  <script>
+    const tit = document.querySelector('#title');
+    const body_container = document.querySelector('.body_container');
+
+    // console.log(body);
+    const CLICKED_CLASS = 'clicked';
+    
+
+    function myHandleClick() {
+      hasClicked = tit.classList.contains(CLICKED_CLASS);
+      if(hasClicked) {
+        tit.classList.remove(CLICKED_CLASS);        
+      } else {
+        tit.classList.add(CLICKED_CLASS);
+      }
+    }
+
+    function myHandleClickByToggle() {
+      tit.classList.toggle(CLICKED_CLASS);
+      body_container.classList.toggle(CLICKED_CLASS);
+    }
+
+    function init() {
+      tit.addEventListener('click', myHandleClickByToggle);
+    }
+
+    init();
+
+  </script>
+</body>
+</html>
